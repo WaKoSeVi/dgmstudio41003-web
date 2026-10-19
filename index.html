@@ -3,44 +3,148 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DGMStudio41003</title>
-<meta name="description" content="Apps de DGMStudio41003: Hilana y Caos en la Barra.">
+<title>DGMStudio41003 · Apps para Android</title>
+<meta name="description" content="DGMStudio41003 hace Hilana, patrones de punto calculados con tus medidas, y Caos en la Barra, un juego de llevar un bar.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231F1D1A'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='34' text-anchor='middle' fill='%23D2AC66'%3ED%3C/text%3E%3C/svg%3E">
+<!-- Sin fuentes ni scripts de fuera: la página no pide nada a terceros, así que quien la visita no
+     deja su IP en ningún sitio más que en GitHub Pages, que es quien la sirve. -->
 <style>
-  :root { --bg: #FDFBF7; --ink: #2E2C29; --soft: #6B655C; --gold: #A8823F; --line: #E6DDCB; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #1F1D1A; --ink: #F1ECE3; --soft: #B9B0A2; --gold: #D2AC66; --line: #3A352E; } }
+  :root {
+    --bg: #FBFAF7; --ink: #1F1D1A; --soft: #5F5A52; --faint: #8C857A; --line: #E9E3D8; --gold: #A8823F;
+    --hilana-bg: #FBF5EA; --hilana-ink: #3D3328; --hilana-accent: #A8823F;
+    --caos-bg: #1C2C78; --caos-ink: #FFFFFF; --caos-soft: #C9D3FF; --caos-accent: #FFC845;
+    --radius: 22px;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #151412; --ink: #F2EDE4; --soft: #B8B0A3; --faint: #8A8377; --line: #2E2A25; --gold: #D2AC66;
+      --hilana-bg: #26211A; --hilana-ink: #F2E9DA; --hilana-accent: #D9B677;
+      --caos-bg: #16225E;
+    }
+  }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.55 Georgia, "Times New Roman", serif; }
-  main { max-width: 640px; margin: 0 auto; padding: 56px 20px 40px; }
-  h1 { font-weight: normal; font-size: 30px; margin: 0 0 6px; }
-  .lead { color: var(--soft); margin: 0 0 40px; }
-  h2 { font-weight: normal; font-size: 21px; margin: 0 0 4px; }
-  section { border-top: 1px solid var(--line); padding: 22px 0; }
-  p { margin: 6px 0; }
-  a { color: var(--gold); }
-  .en { color: var(--soft); font-size: 15px; }
-  footer { border-top: 1px solid var(--line); padding-top: 18px; color: var(--soft); font-size: 14px; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 var(--sans); }
+  a { color: inherit; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  .top { display: flex; align-items: center; justify-content: space-between; padding: 26px 0; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 600; letter-spacing: .01em; }
+  .mark { width: 34px; height: 34px; border-radius: 9px; background: var(--ink); color: var(--gold);
+          display: grid; place-items: center; font: 600 20px/1 var(--serif); }
+  nav a { color: var(--soft); text-decoration: none; margin-left: 22px; font-size: 15px; }
+  nav a:hover { color: var(--ink); }
+
+  .hero { padding: 72px 0 56px; max-width: 760px; }
+  .eyebrow { color: var(--gold); font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 18px; }
+  h1 { font: 500 clamp(38px, 6vw, 60px)/1.08 var(--serif); letter-spacing: -.015em; margin: 0 0 22px; }
+  .lead { font-size: 19px; color: var(--soft); margin: 0; max-width: 620px; }
+  .en { display: block; margin-top: 8px; color: var(--faint); font-size: 15px; }
+
+  .apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; padding-bottom: 72px; }
+  .app { border-radius: var(--radius); padding: 34px; display: flex; flex-direction: column; gap: 18px; border: 1px solid transparent; }
+  .app-head { display: flex; align-items: center; gap: 18px; }
+  .app img { width: 76px; height: 76px; border-radius: 18px; flex: none; box-shadow: 0 6px 18px rgba(0,0,0,.14); }
+  .app h2 { font: 500 30px/1.1 var(--serif); margin: 0; }
+  .app .kind { margin: 4px 0 0; font-size: 14px; opacity: .75; }
+  .app .pitch { font-size: 18px; margin: 0; }
+  .app ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+  .app li { padding-left: 22px; position: relative; font-size: 15.5px; }
+  .app li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .app-foot { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; padding-top: 10px; }
+  .soon { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600;
+          padding: 8px 14px; border-radius: 999px; background: var(--chip); }
+  .soon::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  .app-foot a { font-size: 14.5px; text-underline-offset: 3px; }
+
+  .hilana { --accent: var(--hilana-accent); --chip: rgba(168,130,63,.14); background: var(--hilana-bg); color: var(--hilana-ink);
+            border-color: rgba(168,130,63,.22); }
+  .caos { --accent: var(--caos-accent); --chip: rgba(255,255,255,.12); color: var(--caos-ink);
+          background: radial-gradient(120% 90% at 100% 0%, #2E44A8 0%, var(--caos-bg) 60%); }
+  .caos .kind, .caos li { color: var(--caos-soft); }
+
+  .privacy { border-top: 1px solid var(--line); padding: 56px 0; display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 28px; }
+  .privacy h3 { font: 500 26px/1.2 var(--serif); margin: 0; }
+  .privacy p { margin: 0 0 12px; color: var(--soft); max-width: 620px; }
+
+  .site-footer { border-top: 1px solid var(--line); padding: 30px 0 46px; display: flex; flex-wrap: wrap;
+                 justify-content: space-between; gap: 12px; color: var(--faint); font-size: 14px; }
+  .site-footer a { color: var(--soft); }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    nav a:not(:last-child) { display: none; }
+    .hero { padding: 40px 0 36px; }
+    .app { padding: 26px; }
+    .privacy { grid-template-columns: 1fr; gap: 12px; }
+  }
 </style>
 </head>
 <body>
-<main>
-  <h1>DGMStudio41003</h1>
-  <p class="lead">Apps para Android. <span class="en">Android apps.</span></p>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="/"><span class="mark" aria-hidden="true">D</span>DGMStudio41003</a>
+    <nav><a href="#apps">Apps</a><a href="#privacidad">Privacidad</a><a href="#contacto">Contacto</a></nav>
+  </header>
 
-  <section>
-    <h2>Hilana</h2>
-    <p>Patrones de punto calculados con tus medidas, paso a paso. Sin cuentas: tus datos se quedan en tu teléfono.</p>
-    <p class="en">Knitting patterns calculated from your measurements, step by step.</p>
-    <p><a href="https://wakosevi.github.io/hilana-privacidad/privacidad.html">Política de privacidad</a></p>
+  <section class="hero">
+    <p class="eyebrow">Apps para Android</p>
+    <h1>Apps pequeñas, hechas con cuidado.</h1>
+    <p class="lead">Patrones de punto calculados con tus medidas, y un juego para llevar un bar de barrio hasta un imperio.
+      <span class="en" lang="en">Small apps, made with care: knitting patterns made to your measurements, and a game about running a bar.</span></p>
   </section>
 
-  <section>
-    <h2>Caos en la Barra</h2>
-    <p>De la tasca de barrio a tu propio imperio. Tira cañas, aguanta pesados y crece.</p>
-    <p class="en">From a corner tapas bar to a franchise empire. Pour beers, serve, and grow big.</p>
-    <p><a href="https://sites.google.com/view/caosenlabarra-privacidad/inicio">Política de privacidad</a></p>
+  <main id="apps" class="apps">
+    <article class="app hilana">
+      <div class="app-head">
+        <img src="img/hilana.png" alt="" width="76" height="76">
+        <div><h2>Hilana</h2><p class="kind">Patrones de punto</p></div>
+      </div>
+      <p class="pitch">Patrones de punto calculados con tus medidas, paso a paso.</p>
+      <ul>
+        <li>Jerséis, chaquetas, vestidos, gorros… y para tu perro</li>
+        <li>Mira cómo va a quedar antes de empezar</li>
+        <li>Cómo se hace cada punto, en animación</li>
+        <li>Sin cuentas: tus medidas se quedan en tu teléfono</li>
+      </ul>
+      <div class="app-foot">
+        <span class="soon">Próximamente en Google Play</span>
+        <a href="https://wakosevi.github.io/hilana-privacidad/privacidad.html">Política de privacidad</a>
+      </div>
+    </article>
+
+    <article class="app caos">
+      <div class="app-head">
+        <img src="img/caos.png" alt="" width="76" height="76">
+        <div><h2>Caos en la Barra</h2><p class="kind">Juego de gestión</p></div>
+      </div>
+      <p class="pitch">De la tasca de barrio a tu propio imperio.</p>
+      <ul>
+        <li>Tira cañas y sirve a tiempo</li>
+        <li>Aguanta a los pesados de la barra</li>
+        <li>Haz crecer el bar hasta una franquicia</li>
+      </ul>
+      <div class="app-foot">
+        <span class="soon">Próximamente en Google Play</span>
+        <a href="https://sites.google.com/view/caosenlabarra-privacidad/inicio">Política de privacidad</a>
+      </div>
+    </article>
+  </main>
+
+  <section id="privacidad" class="privacy">
+    <h3>Privacidad</h3>
+    <div>
+      <p>Cada app explica en su política de privacidad qué datos usa, para qué y cómo borrarlos.</p>
+      <p>Hilana no tiene cuentas: tus medidas, tus patrones y tus notas se quedan en tu teléfono.</p>
+    </div>
   </section>
 
-  <footer>© 2026 DGMStudio41003</footer>
-</main>
+  <footer id="contacto" class="site-footer">
+    <span>© 2026 DGMStudio41003</span>
+    <span>Contacto: <a href="mailto:dgmstudio41003@gmail.com">dgmstudio41003@gmail.com</a></span>
+  </footer>
+</div>
 </body>
 </html>
