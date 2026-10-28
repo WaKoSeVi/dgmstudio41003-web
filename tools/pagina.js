@@ -36,13 +36,18 @@ const html = execFileSync('gh', ['api', 'markdown', '--input', '-'], {
   input: JSON.stringify({ text: md, mode: 'markdown' }), encoding: 'utf8',
 });
 
+// GitHub prefija los id de los títulos con «user-content-» y los recupera con un script suyo. Aquí no
+// hay script: sin quitar el prefijo, un enlace como …/privacidad#borrar-tus-datos (el que va en la
+// Seguridad de los datos de Play) no llevaría al apartado.
+const body = html.trim().replace(/id="user-content-/g, 'id="');
+
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 const page = fs.readFileSync(path.join(__dirname, 'plantilla.html'), 'utf8')
   .replace('{{lang}}', lang)
   .replace('{{title}}', esc(title.replace(/^["']|["']$/g, '')))
   .replace('{{source}}', esc(path.basename(path.dirname(path.resolve(src))) + '/' + path.basename(src)))
   // Con función y no con la cadena: un «$&» o un «$1» del texto se tomaría por patrón.
-  .replace('{{body}}', () => html.trim());
+  .replace('{{body}}', () => body);
 
 fs.mkdirSync(path.dirname(dest), { recursive: true });
 fs.writeFileSync(dest, page);
