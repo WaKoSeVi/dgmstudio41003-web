@@ -40,6 +40,10 @@
   article code { font-size: .92em; }
   /* GitHub pone un enlace de ancla junto a cada título, que fuera de GitHub no lleva a ningún sitio. */
   article .anchor { display: none; }
+  .langs { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 14px; color: var(--faint); margin: 0 0 22px; }
+  .langs a { color: var(--soft); text-decoration: none; }
+  .langs a:hover { color: var(--ink); text-decoration: underline; }
+  .langs strong { color: var(--ink); }
   .site-footer { border-top: 1px solid var(--line); padding: 30px 0 46px; display: flex; flex-wrap: wrap;
                  justify-content: space-between; gap: 12px; color: var(--faint); font-size: 14px; }
   .site-footer a { color: var(--soft); }
@@ -53,15 +57,17 @@
     <nav><a href="/">Todas las apps</a></nav>
   </header>
   <article>
+<nav class="langs" aria-label="Idiomas"><strong lang="es">Español</strong> <a href="/hilana/en/privacidad" lang="en" hreflang="en">English</a> <a href="/hilana/de/privacidad" lang="de" hreflang="de">Deutsch</a> <a href="/hilana/fr/privacidad" lang="fr" hreflang="fr">Français</a> <a href="/hilana/it/privacidad" lang="it" hreflang="it">Italiano</a> <a href="/hilana/pt/privacidad" lang="pt" hreflang="pt">Português</a> <a href="/hilana/nl/privacidad" lang="nl" hreflang="nl">Nederlands</a> <a href="/hilana/da/privacidad" lang="da" hreflang="da">Dansk</a> <a href="/hilana/nb/privacidad" lang="nb" hreflang="nb">Norsk</a> <a href="/hilana/sv/privacidad" lang="sv" hreflang="sv">Svenska</a> <a href="/hilana/pl/privacidad" lang="pl" hreflang="pl">Polski</a> <a href="/hilana/el/privacidad" lang="el" hreflang="el">Ελληνικά</a> <a href="/hilana/ja/privacidad" lang="ja" hreflang="ja">日本語</a> <a href="/hilana/zh/privacidad" lang="zh" hreflang="zh">中文</a></nav>
 <div class="markdown-heading"><h1 class="heading-element">Política de privacidad de Hilana</h1><a id="política-de-privacidad-de-hilana" class="anchor" aria-label="Permalink: Política de privacidad de Hilana" href="#política-de-privacidad-de-hilana"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p>Última actualización: 27 de octubre de 2026.</p>
+<p>Última actualización: 29 de octubre de 2026.</p>
 <div class="markdown-heading"><h2 class="heading-element">Lo corto</h2><a id="lo-corto" class="anchor" aria-label="Permalink: Lo corto" href="#lo-corto"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p><strong>Tus medidas, tus patrones y tus notas no nos llegan nunca:</strong> se guardan en tu dispositivo y, si
 tienes encendida la copia de seguridad del teléfono, en esa copia, que va a tu cuenta de Google o
-de iCloud y no a la nuestra. No hay cuentas. <strong>Sólo si
-tú lo aceptas</strong>, la aplicación envía a Google Firebase los fallos que tenga y qué pantallas se usan.
-La versión gratuita enseña un anuncio de Google antes de cada patrón. Si compras Premium, la compra
-se comprueba con Google a través de un servidor nuestro, que sólo recibe el código de la compra.</p>
+de iCloud y no a la nuestra. No hay cuentas. En Android, <strong>sólo si
+tú lo aceptas</strong>, la aplicación envía a Google Firebase los fallos que tenga y qué pantallas se usan;
+en el iPhone no lleva Firebase. La versión gratuita enseña un anuncio de Google antes de cada
+patrón. Si compras Premium en Android, la compra se comprueba con Google a través de un servidor
+nuestro, que sólo recibe el código de la compra; en el iPhone se comprueba en el propio teléfono.</p>
 <div class="markdown-heading"><h2 class="heading-element">Qué guarda la aplicación y dónde</h2><a id="qué-guarda-la-aplicación-y-dónde" class="anchor" aria-label="Permalink: Qué guarda la aplicación y dónde" href="#qué-guarda-la-aplicación-y-dónde"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Todo lo que escribes se queda <strong>dentro de tu dispositivo</strong>:</p>
 <ul>
@@ -71,8 +77,9 @@ se comprueba con Google a través de un servidor nuestro, que sólo recibe el c�
 <li>Tus ajustes: idioma, unidades y región.</li>
 </ul>
 <p>Están en una base de datos de la propia aplicación, a la que ninguna otra aplicación tiene acceso.
-Nosotros no los vemos nunca: la aplicación no los envía a ningún sitio. Lo único que los saca del
-dispositivo es la copia de seguridad del propio teléfono, que se explica en el apartado siguiente.</p>
+Nosotros no los vemos nunca: la aplicación no los envía a ningún sitio. Aparte de los ficheros que
+creas tú (más abajo), lo único que los saca del dispositivo es la copia de seguridad del propio
+teléfono, que se explica en el apartado siguiente.</p>
 <div class="markdown-heading"><h2 class="heading-element">La copia de seguridad de tu teléfono</h2><a id="la-copia-de-seguridad-de-tu-teléfono" class="anchor" aria-label="Permalink: La copia de seguridad de tu teléfono" href="#la-copia-de-seguridad-de-tu-teléfono"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Si tienes encendida la copia de seguridad del teléfono, <strong>el sistema</strong> guarda en ella los datos de
 tus aplicaciones, también los de Hilana. En Android va a tu cuenta de Google y en el iPhone, a tu
@@ -85,6 +92,8 @@ teléfono. En Android suele estar en <strong>Ajustes → Google → Copia de seg
 cambia según el fabricante. En el iPhone, en <strong>Ajustes → tu nombre → iCloud</strong>. Si la apagas, al
 cambiar de teléfono tendrás que pasar tus datos con la copia de seguridad de la propia aplicación.</p>
 <div class="markdown-heading"><h2 class="heading-element">Lo que se envía, sólo si lo aceptas</h2><a id="lo-que-se-envía-sólo-si-lo-aceptas" class="anchor" aria-label="Permalink: Lo que se envía, sólo si lo aceptas" href="#lo-que-se-envía-sólo-si-lo-aceptas"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
+<p><strong>Esto es sólo de Android.</strong> En el iPhone la aplicación no lleva Google Firebase, no te pregunta
+nada de esto y no envía ni fallos ni estadísticas.</p>
 <p>La primera vez que abres la aplicación te pregunta si quieres ayudar a mejorarla. Si dices que no,
 no se envía nada. Si dices que sí, se envía a <strong>Google Firebase</strong> (Google Ireland Limited) lo
 siguiente, y nada más:</p>
@@ -111,18 +120,24 @@ sus condiciones de protección de datos de Firebase.</p>
 <div class="markdown-heading"><h2 class="heading-element">El anuncio de la versión gratuita</h2><a id="el-anuncio-de-la-versión-gratuita" class="anchor" aria-label="Permalink: El anuncio de la versión gratuita" href="#el-anuncio-de-la-versión-gratuita"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
 <p>Antes de enseñar un patrón, la versión gratuita muestra un anuncio de <strong>Google AdMob</strong> (Google
 Ireland Limited). Para servirlo, Google recibe datos técnicos del dispositivo (el modelo, la versión
-de Android, la dirección IP y cómo se interactúa con el anuncio) y, <strong>sólo si lo aceptas</strong>, el
+del sistema, la dirección IP y cómo se interactúa con el anuncio) y, <strong>sólo si lo aceptas</strong>, el
 identificador de publicidad para elegir anuncios según tus intereses. En el Espacio Económico
 Europeo, el Reino Unido y Suiza, la aplicación te lo pregunta con el formulario de Google al
 arrancar, y la respuesta se cambia cuando quieras en <strong>Ajustes → Opciones de privacidad de los
 anuncios</strong>.</p>
+<p>En el iPhone, además, el identificador de publicidad sólo se usa si también lo permites en el aviso
+de Apple que sale después, el que pregunta si dejas que Hilana rastree tu actividad. Esa respuesta
+se cambia en los ajustes del iPhone, en <strong>Privacidad y seguridad → Rastreo</strong>.</p>
 <p>Al anuncio <strong>no le llega nunca</strong> nada de lo que escribes: ni medidas, ni nombres, ni notas. Con
 Premium no hay anuncio.</p>
 <p>La base legal es tu consentimiento para los anuncios personalizados y nuestro interés legítimo en
 financiar la versión gratuita. Google trata estos datos según sus propias condiciones de AdMob.</p>
 <div class="markdown-heading"><h2 class="heading-element">La compra de Premium</h2><a id="la-compra-de-premium" class="anchor" aria-label="Permalink: La compra de Premium" href="#la-compra-de-premium"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>
-<p><strong>El pago lo hace Google Play.</strong> Nosotros no vemos nunca tu tarjeta, tu nombre ni tu correo.</p>
-<p>Hay programas que engañan a la aplicación para que crea que se ha pagado. Para evitarlo, <strong>al
+<p><strong>El pago lo hace Google Play en Android y el App Store en el iPhone.</strong> Nosotros no vemos nunca tu
+tarjeta, tu nombre ni tu correo.</p>
+<p><strong>En el iPhone</strong>, el App Store firma cada compra y la aplicación comprueba esa firma en el propio
+teléfono: no se envía nada a ningún servidor nuestro.</p>
+<p><strong>En Android</strong>, hay programas que engañan a la aplicación para que crea que se ha pagado. Para evitarlo, <strong>al
 comprar y de vez en cuando después</strong> (como mucho una vez cada 12 horas), la aplicación pregunta a un
 servidor nuestro, <code>verificar.dgmstudio41003.com</code>, si la compra es real. Ese servidor se lo pregunta
 a Google Play y contesta sí o no. La aplicación le envía <strong>sólo tres cosas</strong>:</p>
@@ -154,7 +169,7 @@ aplicación también lo borra todo.</p>
 <p><strong>La copia de seguridad del teléfono</strong>, si la tienes encendida, la gestiona tu sistema. Después de
 borrar tus datos en Hilana, la siguiente copia ya se hace sin ellos. Para borrar las copias que ya
 estén hechas, entra en los ajustes de la copia de tu cuenta de Google o de iCloud.</p>
-<p><strong>Lo que se envió a Google Firebase</strong>, si lo aceptaste:</p>
+<p><strong>Lo que se envió a Google Firebase</strong>, si lo aceptaste (sólo en Android):</p>
 <ol>
 <li>En <strong>Ajustes → Ayudar a mejorar la app</strong>, apaga las dos opciones. Desde ese momento no se envía
 nada más, se borran los informes de fallos pendientes de enviar y se borra el identificador de
@@ -174,8 +189,8 @@ datos son los tuyos para borrarlos antes. Sí quedan, sin el identificador, recu
 todas las personas a la vez (por ejemplo, cuántos patrones de jersey se generaron en una semana),
 que no permiten saber nada de nadie.</p>
 <p><strong>Lo de la compra:</strong> el servidor que la comprueba no guarda nada que te identifique, ni el código de
-la compra, así que no hay nada tuyo que borrar allí. La compra en sí la gestiona Google Play, desde
-tu cuenta de Google.</p>
+la compra, así que no hay nada tuyo que borrar allí. La compra en sí la gestiona Google Play, con
+tu cuenta de Google, o el App Store, con tu cuenta de Apple.</p>
 <p>Para cualquier duda sobre tus datos, escríbenos a
 <a href="mailto:dgmstudio41003@gmail.com">dgmstudio41003@gmail.com</a>.</p>
 <div class="markdown-heading"><h2 class="heading-element">Menores</h2><a id="menores" class="anchor" aria-label="Permalink: Menores" href="#menores"><span aria-hidden="true" class="octicon octicon-link"></span></a></div>

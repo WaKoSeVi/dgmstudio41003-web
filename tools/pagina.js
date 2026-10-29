@@ -1,6 +1,6 @@
 // Pasa un .md (una política, unas condiciones) a una página de la web con el aspecto de index.html:
 //
-//   node tools/pagina.js <origen.md> <destino.html> [idioma]
+//   node tools/pagina.js <origen.md> <destino.html> [idioma] [idiomas.json]
 //   node tools/pagina.js ../Costura/docs/privacidad.md hilana/privacidad.html
 //
 // El original vive en el repositorio de cada app (Hilana: Costura/docs/privacidad.md) y aquí sólo se
@@ -14,9 +14,9 @@ const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
 
-const [src, dest, lang = 'es'] = process.argv.slice(2);
+const [src, dest, lang = 'es', langsFile] = process.argv.slice(2);
 if (!src || !dest) {
-  console.error('Uso: node tools/pagina.js <origen.md> <destino.html> [idioma]');
+  console.error('Uso: node tools/pagina.js <origen.md> <destino.html> [idioma] [idiomas.json]');
   process.exit(1);
 }
 
@@ -41,12 +41,24 @@ const html = execFileSync('gh', ['api', 'markdown', '--input', '-'], {
 // Seguridad de los datos de Play) no llevaría al apartado.
 const body = html.trim().replace(/id="user-content-/g, 'id="');
 
+// Con [idiomas.json] (una lista de {lang, name, url}, como tools/idiomas-hilana.json), la página lleva
+// arriba los enlaces a la misma página en los demás idiomas, con el suyo marcado. Play sólo admite
+// una dirección de privacidad para todos los idiomas: sin estos enlaces, quien llega a la castellana
+// desde la ficha no sabría que la tiene en el suyo.
+const langs = langsFile ? JSON.parse(fs.readFileSync(langsFile, 'utf8')) : [];
+const langNav = langs.length
+  ? '<nav class="langs" aria-label="Idiomas">' + langs.map(l => l.lang === lang
+      ? `<strong lang="${l.lang}">${l.name}</strong>`
+      : `<a href="${l.url}" lang="${l.lang}" hreflang="${l.lang}">${l.name}</a>`).join(' ') + '</nav>'
+  : '';
+
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 const page = fs.readFileSync(path.join(__dirname, 'plantilla.html'), 'utf8')
   .replace('{{lang}}', lang)
   .replace('{{title}}', esc(title.replace(/^["']|["']$/g, '')))
   .replace('{{source}}', esc(path.basename(path.dirname(path.resolve(src))) + '/' + path.basename(src)))
   // Con función y no con la cadena: un «$&» o un «$1» del texto se tomaría por patrón.
+  .replace('{{langs}}', () => langNav)
   .replace('{{body}}', () => body);
 
 fs.mkdirSync(path.dirname(dest), { recursive: true });

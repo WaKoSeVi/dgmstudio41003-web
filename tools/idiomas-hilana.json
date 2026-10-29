@@ -1,0 +1,72 @@
+[
+ {
+  "lang": "es",
+  "name": "Español",
+  "url": "/hilana/privacidad"
+ },
+ {
+  "lang": "en",
+  "name": "English",
+  "url": "/hilana/en/privacidad"
+ },
+ {
+  "lang": "de",
+  "name": "Deutsch",
+  "url": "/hilana/de/privacidad"
+ },
+ {
+  "lang": "fr",
+  "name": "Français",
+  "url": "/hilana/fr/privacidad"
+ },
+ {
+  "lang": "it",
+  "name": "Italiano",
+  "url": "/hilana/it/privacidad"
+ },
+ {
+  "lang": "pt",
+  "name": "Português",
+  "url": "/hilana/pt/privacidad"
+ },
+ {
+  "lang": "nl",
+  "name": "Nederlands",
+  "url": "/hilana/nl/privacidad"
+ },
+ {
+  "lang": "da",
+  "name": "Dansk",
+  "url": "/hilana/da/privacidad"
+ },
+ {
+  "lang": "nb",
+  "name": "Norsk",
+  "url": "/hilana/nb/privacidad"
+ },
+ {
+  "lang": "sv",
+  "name": "Svenska",
+  "url": "/hilana/sv/privacidad"
+ },
+ {
+  "lang": "pl",
+  "name": "Polski",
+  "url": "/hilana/pl/privacidad"
+ },
+ {
+  "lang": "el",
+  "name": "Ελληνικά",
+  "url": "/hilana/el/privacidad"
+ },
+ {
+  "lang": "ja",
+  "name": "日本語",
+  "url": "/hilana/ja/privacidad"
+ },
+ {
+  "lang": "zh",
+  "name": "中文",
+  "url": "/hilana/zh/privacidad"
+ }
+]
