@@ -35,7 +35,12 @@
   article strong { color: var(--ink); }
   article ul, article ol { padding-left: 22px; }
   article li { margin: 6px 0; }
-  article table { border-collapse: collapse; width: 100%; font-size: 15px; margin: 18px 0; display: block; overflow-x: auto; }
+  /* La tabla de tratamientos de la política: en móvil se sale por la derecha si no se le deja
+     desplazarse sola; `min-width: 0` en el artículo es lo que permite que el bloque encoja. */
+  article { min-width: 0; }
+  article h1 { overflow-wrap: anywhere; }
+  article table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 18px 0; display: block; overflow-x: auto; max-width: 100%; }
+  article td:first-child { min-width: 9em; }
   article th, article td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
   article code { font-size: .92em; }
   /* GitHub pone un enlace de ancla junto a cada título, que fuera de GitHub no lleva a ningún sitio. */
