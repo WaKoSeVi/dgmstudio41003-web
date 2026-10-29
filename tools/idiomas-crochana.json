@@ -1,0 +1,72 @@
+[
+ {
+  "lang": "es",
+  "name": "Español",
+  "url": "/crochana/privacidad"
+ },
+ {
+  "lang": "en",
+  "name": "English",
+  "url": "/crochana/en/privacidad"
+ },
+ {
+  "lang": "de",
+  "name": "Deutsch",
+  "url": "/crochana/de/privacidad"
+ },
+ {
+  "lang": "fr",
+  "name": "Français",
+  "url": "/crochana/fr/privacidad"
+ },
+ {
+  "lang": "it",
+  "name": "Italiano",
+  "url": "/crochana/it/privacidad"
+ },
+ {
+  "lang": "pt",
+  "name": "Português",
+  "url": "/crochana/pt/privacidad"
+ },
+ {
+  "lang": "nl",
+  "name": "Nederlands",
+  "url": "/crochana/nl/privacidad"
+ },
+ {
+  "lang": "da",
+  "name": "Dansk",
+  "url": "/crochana/da/privacidad"
+ },
+ {
+  "lang": "nb",
+  "name": "Norsk",
+  "url": "/crochana/nb/privacidad"
+ },
+ {
+  "lang": "sv",
+  "name": "Svenska",
+  "url": "/crochana/sv/privacidad"
+ },
+ {
+  "lang": "pl",
+  "name": "Polski",
+  "url": "/crochana/pl/privacidad"
+ },
+ {
+  "lang": "el",
+  "name": "Ελληνικά",
+  "url": "/crochana/el/privacidad"
+ },
+ {
+  "lang": "ja",
+  "name": "日本語",
+  "url": "/crochana/ja/privacidad"
+ },
+ {
+  "lang": "zh",
+  "name": "中文",
+  "url": "/crochana/zh/privacidad"
+ }
+]
