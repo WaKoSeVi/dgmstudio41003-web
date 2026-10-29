@@ -1,0 +1,72 @@
+[
+ {
+  "lang": "es",
+  "name": "Español",
+  "url": "/crochana/condiciones"
+ },
+ {
+  "lang": "en",
+  "name": "English",
+  "url": "/crochana/en/condiciones"
+ },
+ {
+  "lang": "de",
+  "name": "Deutsch",
+  "url": "/crochana/de/condiciones"
+ },
+ {
+  "lang": "fr",
+  "name": "Français",
+  "url": "/crochana/fr/condiciones"
+ },
+ {
+  "lang": "it",
+  "name": "Italiano",
+  "url": "/crochana/it/condiciones"
+ },
+ {
+  "lang": "pt",
+  "name": "Português",
+  "url": "/crochana/pt/condiciones"
+ },
+ {
+  "lang": "nl",
+  "name": "Nederlands",
+  "url": "/crochana/nl/condiciones"
+ },
+ {
+  "lang": "da",
+  "name": "Dansk",
+  "url": "/crochana/da/condiciones"
+ },
+ {
+  "lang": "nb",
+  "name": "Norsk",
+  "url": "/crochana/nb/condiciones"
+ },
+ {
+  "lang": "sv",
+  "name": "Svenska",
+  "url": "/crochana/sv/condiciones"
+ },
+ {
+  "lang": "pl",
+  "name": "Polski",
+  "url": "/crochana/pl/condiciones"
+ },
+ {
+  "lang": "el",
+  "name": "Ελληνικά",
+  "url": "/crochana/el/condiciones"
+ },
+ {
+  "lang": "ja",
+  "name": "日本語",
+  "url": "/crochana/ja/condiciones"
+ },
+ {
+  "lang": "zh",
+  "name": "中文",
+  "url": "/crochana/zh/condiciones"
+ }
+]
