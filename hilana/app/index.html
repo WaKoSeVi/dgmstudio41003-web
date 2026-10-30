@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Descargar Hilana · DGMStudio41003</title>
+<meta name="description" content="Hilana: patrones de punto calculados con tus medidas. Descárgala en Google Play o en el App Store.">
+<link rel="icon" href="/img/hilana.png">
+<!-- La página del QR del flyer de las mercerías (30-10-2026). Un solo QR para los dos teléfonos:
+     aquí se mira si es Android o iPhone y se salta a su tienda. Si cambia algo de las tiendas, se
+     arregla aquí y los flyers ya impresos siguen valiendo.
+     Mientras una tienda no tenga la app publicada, su `publicada` va a false y en vez de saltar se
+     enseña «Muy pronto»: saltar a una ficha que aún no existe deja a la gente en un error de la tienda.
+     Al publicar, poner `publicada: true` y nada más.
+     Sin fuentes ni scripts de fuera, como el resto de la web: quien escanea sólo deja su IP en
+     GitHub Pages. -->
+<style>
+  :root {
+    --bg: #FBF5EA; --ink: #3D3328; --soft: #6E6253; --line: #E9DFCC; --accent: #A8823F; --btn: #1F1D1A; --btn-ink: #FFFFFF;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #26211A; --ink: #F2E9DA; --soft: #C2B6A2; --line: #3A3329; --accent: #D9B677; --btn: #F2E9DA; --btn-ink: #1F1D1A; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--ink); font: 17px/1.55 var(--sans);
+         display: grid; place-items: center; padding: 32px 16px; }
+  main { width: 100%; max-width: 420px; text-align: center; }
+  img { width: 96px; height: 96px; border-radius: 22px; }
+  h1 { font: 500 40px/1.1 var(--serif); margin: 18px 0 8px; }
+  p { color: var(--soft); margin: 0 0 28px; }
+  .stores { display: grid; gap: 12px; }
+  .store { display: block; padding: 16px 18px; border-radius: 14px; background: var(--btn); color: var(--btn-ink);
+           text-decoration: none; font-weight: 600; }
+  .store small { display: block; font-weight: 400; opacity: .75; font-size: 13px; }
+  .store.soon { background: transparent; color: var(--soft); border: 1px dashed var(--line); pointer-events: none; }
+  footer { margin-top: 36px; font-size: 13px; color: var(--soft); }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <img src="/img/hilana.png" alt="">
+  <h1>Hilana</h1>
+  <p>Patrones de punto calculados con tus medidas, paso a paso.</p>
+  <div class="stores">
+    <a class="store" id="android" href="https://play.google.com/store/apps/details?id=com.dgmstudio41003.knit"><small>Para Android</small>Google Play</a>
+    <a class="store" id="ios" href="https://apps.apple.com/app/id6824662429"><small>Para iPhone y iPad</small>App Store</a>
+  </div>
+  <footer><a href="/">DGMStudio41003</a> · <a href="/hilana/privacidad">Privacidad</a></footer>
+</main>
+<script>
+  // Cambiar a true el día que cada tienda publique la app.
+  const PUBLICADA = { android: false, ios: false };
+
+  // El iPad con iPadOS se presenta como un Mac: lo delata que tiene pantalla táctil.
+  const ua = navigator.userAgent;
+  const sistema = /android/i.test(ua) ? "android"
+    : (/iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1)) ? "ios"
+    : null;
+
+  for (const id of ["android", "ios"]) {
+    if (PUBLICADA[id]) continue;
+    const a = document.getElementById(id);
+    a.classList.add("soon");
+    a.removeAttribute("href");
+    a.lastChild.textContent = (id === "android" ? "Google Play" : "App Store") + " · muy pronto";
+  }
+
+  if (sistema && PUBLICADA[sistema]) location.replace(document.getElementById(sistema).href);
+</script>
+</body>
+</html>
