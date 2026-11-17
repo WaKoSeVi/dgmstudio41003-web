@@ -54,6 +54,7 @@
   .app li { padding-left: 22px; position: relative; font-size: 15.5px; }
   .app li::before { content: ""; position: absolute; left: 2px; top: .62em; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
   .app-foot { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; padding-top: 10px; }
+  .guias { font-size: 14px; margin: 12px 0 0; opacity: .85; } .guias a { color: inherit; }
   .soon { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600;
           padding: 8px 14px; border-radius: 999px; background: var(--chip); }
   .soon::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
@@ -119,6 +120,7 @@
         <span class="soon">iPhone: muy pronto</span>
         <a href="/hilana/privacidad">Política de privacidad</a>
       </div>
+      <p class="guias">Guías: <a href="/hilana/guia/muestra/">cómo hacer la muestra</a> · <a href="/hilana/guia/patron-a-medida/">patrón a medida</a></p>
       <!-- El mismo QR que los flyers: lleva a /hilana/app, que manda cada teléfono a su tienda.
            Sólo en pantallas anchas: desde el propio móvil se pulsa el botón. -->
       <figure class="qr">

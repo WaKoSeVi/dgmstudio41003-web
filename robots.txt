@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dgmstudio41003.com/sitemap.xml
